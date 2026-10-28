@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ja" data-lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mikio | Japanese Localization & Japan Market Entry</title>
+<meta name="description" content="英語→日本語ローカライズ、SEO、QAで日本市場に挑む海外ブランドを支えるフリーランス、みきおのポートフォリオ。">
+<meta property="og:title" content="Mikio | Japanese Localization & Japan Market Entry">
+<meta property="og:description" content="Not just translated. Made to land in Japan.">
+<meta property="og:type" content="website">
+<!-- <meta property="og:image" content="https://YOUR-NAME.github.io/portfolio/assets/ogp.png"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b08; --bg2:#0d140f; --card:#111a13; --line:#1f2e22;
+  --text:#e8f3ea; --muted:#8fa694; --neon:#39ff6a; --neon-soft:rgba(57,255,106,.12);
+  --radius:18px; --max:1120px;
+  --font:"Space Grotesk","Noto Sans JP",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--neon);color:#000;padding:6px 12px;border-radius:8px;z-index:99}
+.skip:focus{left:8px}
+
+/* language toggle */
+html[data-lang="ja"] .en, html[data-lang="en"] .ja{display:none!important}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(7,11,8,.75);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-weight:700;letter-spacing:.04em;font-size:1.1rem}
+.logo b{color:var(--neon)}
+.nav ul{display:flex;gap:26px;list-style:none;font-size:.85rem;letter-spacing:.08em}
+.nav ul a{color:var(--muted);transition:color .2s}
+.nav ul a:hover{color:var(--neon)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:.75rem;font-weight:700}
+.lang button{background:none;border:0;color:var(--muted);padding:6px 12px;cursor:pointer;font:inherit}
+.lang button[aria-pressed="true"]{background:var(--neon);color:#000}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:10px;padding:6px 10px;font:inherit;cursor:pointer}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;
+  background:
+   radial-gradient(600px 400px at 85% 20%,rgba(57,255,106,.16),transparent 70%),
+   linear-gradient(var(--line) 1px,transparent 1px) 0 0/48px 48px,
+   linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/48px 48px;
+  background-color:var(--bg)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,var(--bg));pointer-events:none}
+.hero .wrap{position:relative;z-index:1;width:100%}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;border:1px solid var(--line);background:var(--bg2);padding:6px 14px;border-radius:999px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;color:var(--neon);font-weight:700;margin:28px 0 14px}
+h1{font-size:clamp(2.2rem,6.4vw,4.8rem);line-height:1.18;font-weight:900;letter-spacing:-.01em}
+h1 em,h2 em{font-style:normal;color:var(--neon);text-shadow:0 0 24px rgba(57,255,106,.45)}
+.lead{max-width:640px;color:var(--muted);margin:26px 0 36px;font-size:1.02rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:.95rem;transition:transform .2s,box-shadow .2s}
+.btn-neon{background:var(--neon);color:#031006;box-shadow:0 0 0 rgba(57,255,106,0)}
+.btn-neon:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(57,255,106,.4)}
+.btn-ghost{border:1px solid var(--line);color:var(--text)}
+.btn-ghost:hover{border-color:var(--neon);color:var(--neon)}
+.hero-name{margin-top:56px;font-size:.85rem;color:var(--muted)}
+.hero-name strong{color:var(--text);font-size:1.05rem;margin-right:8px}
+
+/* sections */
+section{padding:110px 0}
+.label{font-size:.78rem;letter-spacing:.24em;color:var(--neon);font-weight:700;display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.label::before{content:"";width:28px;height:2px;background:var(--neon);box-shadow:0 0 8px var(--neon)}
+h2{font-size:clamp(1.7rem,4vw,2.7rem);line-height:1.3;font-weight:900;margin-bottom:22px}
+.sub{color:var(--muted);max-width:680px}
+.alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:44px}
+.num{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 18px}
+.num .v{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;color:var(--neon);line-height:1.1}
+.num .k{font-size:.82rem;color:var(--muted);margin-top:10px;line-height:1.5}
+.note{font-size:.75rem;color:var(--muted);margin-top:16px}
+
+/* story */
+.story{display:grid;grid-template-columns:320px 1fr;gap:56px;align-items:start;margin-top:40px}
+.photo{aspect-ratio:4/5;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(160deg,var(--card),#0a2412);display:grid;place-items:center;font-size:3.4rem;font-weight:900;color:var(--neon);overflow:hidden;position:relative}
+.photo img{width:100%;height:100%;object-fit:cover}
+.story p{color:#cfdcd2;margin-bottom:18px}
+.timeline{list-style:none;margin-top:28px;border-left:2px solid var(--line);padding-left:22px}
+.timeline li{position:relative;margin-bottom:18px;font-size:.92rem}
+.timeline li::before{content:"";position:absolute;left:-29px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--neon)}
+.timeline span{color:var(--neon);font-weight:700;font-size:.8rem;display:block;letter-spacing:.06em}
+blockquote{border-left:3px solid var(--neon);padding:6px 0 6px 20px;font-size:1.15rem;font-weight:700;margin:26px 0}
+
+/* services */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;position:relative;transition:border-color .25s,transform .25s}
+.step:hover{border-color:var(--neon);transform:translateY(-4px)}
+.step .no{font-size:.8rem;color:var(--neon);font-weight:700;letter-spacing:.12em}
+.step h3{font-size:1.25rem;margin:8px 0 12px}
+.step p{color:var(--muted);font-size:.92rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{font-size:.74rem;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:#bcd0c0}
+
+/* work */
+.works{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:44px}
+.work{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;gap:12px}
+.work.big{grid-column:span 2;background:linear-gradient(135deg,var(--card),#0b2413)}
+.work .meta{font-size:.76rem;letter-spacing:.14em;color:var(--neon);font-weight:700}
+.work h3{font-size:1.3rem;line-height:1.4}
+.work ul{list-style:none;color:#c6d6ca;font-size:.92rem}
+.work li{padding-left:18px;position:relative;margin-bottom:4px}
+.work li::before{content:"→";position:absolute;left:0;color:var(--neon)}
+.quote{margin-top:auto;font-style:italic;color:var(--neon);font-size:.92rem;border-top:1px dashed var(--line);padding-top:12px}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.why div{border-top:2px solid var(--neon);padding-top:20px}
+.why h3{font-size:1.1rem;margin-bottom:8px}
+.why p{color:var(--muted);font-size:.92rem}
+.formula{margin-top:48px;text-align:center;font-size:clamp(1.05rem,2.4vw,1.5rem);font-weight:700}
+.formula em{font-style:normal;color:var(--neon)}
+
+/* voices */
+.voices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.voice{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+.voice .q{font-size:1.35rem;font-weight:700;color:var(--neon);line-height:1.4;margin-bottom:12px}
+.voice p{color:var(--muted);font-size:.88rem}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chip{background:var(--neon-soft);color:var(--neon);border-radius:999px;padding:6px 14px;font-size:.82rem;font-weight:700}
+
+/* beyond */
+.beyond{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+.card-link{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;display:block;transition:border-color .25s}
+.card-link:hover{border-color:var(--neon)}
+.card-link .meta{font-size:.74rem;letter-spacing:.14em;color:var(--neon);font-weight:700}
+.card-link h3{font-size:1.1rem;margin:6px 0 8px}
+.card-link p{color:var(--muted);font-size:.88rem}
+
+/* contact */
+.contact{text-align:center;padding:140px 0;background:radial-gradient(500px 300px at 50% 60%,rgba(57,255,106,.14),transparent 70%)}
+.contact h2{font-size:clamp(2rem,5vw,3.6rem)}
+.contact .sub{margin:0 auto 36px}
+.contact .btns{justify-content:center}
+
+footer{border-top:1px solid var(--line);padding:30px 0;font-size:.8rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer a:hover{color:var(--neon)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dot{animation:none}html{scroll-behavior:auto}}
+
+/* responsive */
+@media (max-width:960px){
+  .nums{grid-template-columns:repeat(3,1fr)}
+  .steps,.why,.voices,.beyond{grid-template-columns:1fr}
+  .story{grid-template-columns:1fr}
+  .photo{max-width:280px}
+}
+@media (max-width:760px){
+  .nav ul{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px}
+  .nav ul.open{display:flex}
+  .nav ul a{display:block;padding:12px 0}
+  .menu-btn{display:block}
+  .nums{grid-template-columns:repeat(2,1fr)}
+  .works{grid-template-columns:1fr}
+  .work.big{grid-column:auto}
+  section{padding:80px 0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span class="ja">本文へ移動</span><span class="en">Skip to content</span></a>
+
+<header>
+  <nav class="wrap nav" aria-label="Main">
+    <a href="#top" class="logo">MIKIO<b>.</b></a>
+    <ul id="menu">
+      <li><a href="#story">STORY</a></li>
+      <li><a href="#services">SERVICES</a></li>
+      <li><a href="#work">WORK</a></li>
+      <li><a href="#voices">VOICES</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-set-lang="ja" aria-pressed="true">JP</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="menu-btn" type="button" aria-controls="menu" aria-expanded="false">MENU</button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="status"><i class="dot"></i><span class="ja">新規のご相談受付中</span><span class="en">Open for new projects</span></div>
+    <p class="eyebrow">JAPANESE LOCALIZATION × JAPAN MARKET ENTRY</p>
+    <h1>
+      <span class="ja">翻訳で終わらせない。<br>日本で<em>“届く”</em>まで。</span>
+      <span class="en">Not just translated.<br>Made to <em>land</em> in Japan.</span>
+    </h1>
+    <p class="lead">
+      <span class="ja">英語→日本語のローカライズ、SEOコピー、QAで、日本市場に挑む海外ブランドを支えています。キーワード調査からリリース後の改善まで、日本市場の“担当者”として伴走します。</span>
+      <span class="en">I help global brands enter the Japanese market through EN→JP localization, SEO copywriting and QA — from keyword research before launch to improvements after it. Think of me as your Japan market team of one.</span>
+    </p>
+    <div class="btns">
+      <a class="btn btn-neon" href="#contact"><span class="ja">相談する</span><span class="en">Let's talk</span> →</a>
+      <a class="btn btn-ghost" href="#work"><span class="ja">実績を見る</span><span class="en">See my work</span></a>
+    </div>
+    <p class="hero-name"><strong>みきお / Mikio</strong><span class="ja">英日ローカライザー・元エンジニア・デジタルノマド</span><span class="en">EN→JP Localizer · Ex-Software Engineer · Digital Nomad</span></p>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="alt" aria-labelledby="num-h">
+  <div class="wrap">
+    <p class="label">BY THE NUMBERS</p>
+    <h2 id="num-h"><span class="ja">数字で見る実績</span><span class="en">Track record at a glance</span></h2>
+    <div class="nums">
+      <div class="num reveal"><div class="v">Top Rated</div><div class="k"><span class="ja">Upworkでの評価バッジ</span><span class="en">Upwork status</span></div></div>
+      <div class="num reveal"><div class="v">100%</div><div class="k">Job Success Score</div></div>
+      <div class="num reveal"><div class="v">70+</div><div class="k"><span class="ja">Upwork完了案件</span><span class="en">Completed Upwork jobs</span></div></div>
+      <div class="num reveal"><div class="v">5.0</div><div class="k"><span class="ja">評価付き全案件の平均</span><span class="en">Rating on every reviewed job</span></div></div>
+      <div class="num reveal"><div class="v">100M+</div><div class="k"><span class="ja">字幕を担当するYouTubeチャンネルの登録者数</span><span class="en">Subscribers of the YouTube channel I subtitle</span></div></div>
+    </div>
+    <p class="note"><span class="ja">※2026年10月時点の数値です。</span><span class="en">*Figures as of October 2026.</span></p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="wrap">
+    <p class="label">MY STORY</p>
+    <h2><span class="ja">エンジニア × カスタマーサクセス<br>から、<em>ローカライザー</em>へ。</span><span class="en">From engineer and customer success<br>to <em>localizer</em>.</span></h2>
+    <div class="story">
+      <div class="photo reveal" aria-label="Profile photo">
+        <!-- 写真を入れる場合：assets/profile.jpg を置いて下の行のコメントを外す -->
+        <!-- <img src="assets/profile.jpg" alt="Mikio"> -->
+        M
+      </div>
+      <div class="reveal">
+        <p class="ja">大学でソフトウェアを学び、システム会社に就職。23社のB2Bクライアントの導入支援を担当しながら、社内初のiPadアプリ開発にも携わりました。その後はWebエンジニアとして、PHP・Laravel・JavaScriptで業務システムやECの開発を経験しています。</p>
+        <p class="en">I studied software engineering, then joined a systems company where I onboarded 23 B2B clients while also building the company's first iPad app. After that I worked as a web engineer, developing business systems and e-commerce features with PHP, Laravel and JavaScript.</p>
+        <p class="ja">いま取り組んでいるのは、海外ブランドの言葉を「日本人に自然に届く日本語」にする仕事です。開発の現場と顧客の現場、両方を見てきたからこそ、UIの文字数やバグ、検索のされ方まで含めて日本語を整えられます。</p>
+        <p class="en">Today I turn global brands' words into Japanese that actually lands with Japanese users. Having worked on both the dev side and the customer side, I care about more than wording — UI length limits, bugs, and how people really search.</p>
+        <blockquote><span class="ja">「翻訳されている」と「伝わっている」は違う。</span><span class="en">"Translated" and "understood" are not the same thing.</span></blockquote>
+        <ul class="timeline">
+          <li><span>2015 –</span><span class="ja">システム会社でCS・アプリ開発（23社を担当）</span><span class="en">Customer success & app development (23 B2B clients)</span></li>
+          <li><span>2022 –</span><span class="ja">Webエンジニアとして業務システム・EC開発</span><span class="en">Web engineer — business systems & e-commerce</span></li>
+          <li><span>2025 –</span><span class="ja">デジタルノマド生活をスタート</span><span class="en">Started life as a digital nomad</span></li>
+          <li><span>NOW</span><span class="ja">フリーランスの英日ローカライザー／Upwork Top Rated</span><span class="en">Freelance EN→JP localizer, Top Rated on Upwork</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="alt" id="services">
+  <div class="wrap">
+    <p class="label">WHAT I DO</p>
+    <h2><span class="ja">日本市場参入を、<em>3つのステージ</em>で。</span><span class="en">Japan market entry, in <em>three stages</em>.</span></h2>
+    <p class="sub"><span class="ja">翻訳だけを切り出すのではなく、参入前・参入時・参入後のどこからでもお手伝いできます。</span><span class="en">Not just a translation hand-off — I can step in before, during, or after your launch.</span></p>
+    <div class="steps">
+      <article class="step reveal">
+        <p class="no">01 — BEFORE LAUNCH</p>
+        <h3><span class="ja">参入前：調べる</span><span class="en">Research</span></h3>
+        <p><span class="ja">日本のユーザーが実際にどんな言葉で検索しているかを調べ、狙うべきキーワードと競合の状況を整理します。</span><span class="en">Find the words Japanese users actually search for, and map the keywords and competitors worth targeting.</span></p>
+        <div class="tags"><span class="tag">Keyword Research</span><span class="tag">Competitor Analysis</span></div>
+      </article>
+      <article class="step reveal">
+        <p class="no">02 — LAUNCH</p>
+        <h3><span class="ja">参入時：届ける</span><span class="en">Localize</span></h3>
+        <p><span class="ja">Webサイト・アプリ・EC商品ページ・Amazon・動画字幕を、検索意図とブランドのトーンに合わせてローカライズします。</span><span class="en">Localize websites, apps, product pages, Amazon listings and video subtitles — matched to search intent and your brand voice.</span></p>
+        <div class="tags"><span class="tag">Web / App</span><span class="tag">E-commerce</span><span class="tag">SEO Copy</span><span class="tag">Subtitles</span></div>
+      </article>
+      <article class="step reveal">
+        <p class="no">03 — AFTER LAUNCH</p>
+        <h3><span class="ja">参入後：磨く</span><span class="en">Improve</span></h3>
+        <p><span class="ja">LQA・機能QAで品質を確認し、公開後30日・60日のキーワード順位などを見ながら改善を提案します。</span><span class="en">Check quality with LQA and functional QA, then track keyword rankings at 30 and 60 days and suggest improvements.</span></p>
+        <div class="tags"><span class="tag">LQA</span><span class="tag">Functional QA</span><span class="tag">SEO Review</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <p class="label">SELECTED WORK</p>
+    <h2><span class="ja">これまでの実績</span><span class="en">Selected projects</span></h2>
+    <p class="sub"><span class="ja">守秘義務のため、一部のクライアント名は伏せています。</span><span class="en">Some client names are withheld for confidentiality.</span></p>
+    <div class="works">
+      <article class="work big reveal">
+        <p class="meta">E-COMMERCE · DENMARK</p>
+        <h3><span class="ja">Trendhim：ファッションECの日本語サイトを丸ごとローカライズ</span><span class="en">Trendhim — full Japanese localization of a fashion e-commerce site</span></h3>
+        <ul>
+          <li><span class="ja">Contentstack上でAI翻訳の日本語を修正。サイト全体と商品7,500点を担当</span><span class="en">Post-edited AI translations in Contentstack across the whole site and 7,500 products</span></li>
+          <li><span class="ja">日本市場向けのUX改善を提案し、作業効率化ツールも自作</span><span class="en">Advised on UX for Japanese shoppers and built my own tool to speed up the workflow</span></li>
+          <li><span class="ja">ローカライズ中に見つけたシステムのバグも報告</span><span class="en">Found and reported system bugs along the way</span></li>
+        </ul>
+        <p class="quote">“naturally took the lead”</p>
+      </article>
+      <article class="work reveal">
+        <p class="meta">AMAZON JAPAN · UAE</p>
+        <h3><span class="ja">美容ブランドのAmazon Japan出店支援</span><span class="en">Amazon Japan launch for a beauty brand</span></h3>
+        <ul>
+          <li><span class="ja">検索キーワードを踏まえた商品名・説明文の翻訳とコピー</span><span class="en">Keyword-driven titles and descriptions</span></li>
+          <li><span class="ja">日本人デザイナー・動画編集者・ナレーターの採用とディレクション</span><span class="en">Hired and directed a Japanese designer, video editor and voice actor</span></li>
+          <li><span class="ja">ナレーション台本と画像内コピーを作成</span><span class="en">Wrote the voiceover script and on-image copy</span></li>
+        </ul>
+      </article>
+      <article class="work reveal">
+        <p class="meta">SUBTITLES · YOUTUBE</p>
+        <h3><span class="ja">登録者1億人超のYouTubeチャンネルの日本語字幕</span><span class="en">Japanese subtitles for a 100M+ subscriber YouTube channel</span></h3>
+        <ul>
+          <li><span class="ja">Aegisubで翻訳・編集し、.srtのタイムコードを同期</span><span class="en">Translated and timed .srt files in Aegisub</span></li>
+          <li><span class="ja">出演者のキャラクターに合わせて口調を調整</span><span class="en">Adapted tone to each on-screen character</span></li>
+        </ul>
+        <p class="quote">“Fantastic collaboration”</p>
+      </article>
+      <article class="work reveal">
+        <p class="meta">APPS · LANGUAGE LEARNING</p>
+        <h3><span class="ja">iOS/Androidアプリのローカライズ・LQA</span><span class="en">App localization & LQA</span></h3>
+        <ul>
+          <li><span class="ja">モバイルアプリ、語学学習アプリ、ゲームの翻訳・校正</span><span class="en">Translation and proofreading for mobile, language-learning and game apps</span></li>
+          <li><span class="ja">Lokalise・Notionを使ったLQA</span><span class="en">LQA in Lokalise and Notion</span></li>
+        </ul>
+      </article>
+      <article class="work reveal">
+        <p class="meta">SOFTWARE QA</p>
+        <h3><span class="ja">決済機能などのソフトウェアQA</span><span class="en">Software QA for payment features</span></h3>
+        <ul>
+          <li><span class="ja">テスト仕様書に沿った単体テストとSQLの実行</span><span class="en">Ran test cases and SQL queries from spec</span></li>
+          <li><span class="ja">再現手順・緊急度つきのバグチケットを起票</span><span class="en">Filed bug tickets with repro steps and severity</span></li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="alt" aria-labelledby="why-h">
+  <div class="wrap">
+    <p class="label">WHY ME</p>
+    <h2 id="why-h"><span class="ja">選ばれる<em>3つの理由</em></span><span class="en"><em>Three reasons</em> clients pick me</span></h2>
+    <div class="why">
+      <div class="reveal"><h3><span class="ja">エンジニア経験</span><span class="en">Engineering background</span></h3><p><span class="ja">約4年の開発経験。CMSやアプリの仕組みがわかるので、文字切れやバグにも気づけます。</span><span class="en">~4 years as a developer. I understand CMSs and apps, so I catch truncation and bugs, not just typos.</span></p></div>
+      <div class="reveal"><h3><span class="ja">カスタマーサクセス経験</span><span class="en">Customer success background</span></h3><p><span class="ja">約4年で23社のB2Bクライアントを担当。相手の目的を聞いて、先回りして動くのが得意です。</span><span class="en">~4 years supporting 23 B2B clients. I listen for the goal and act before I'm asked.</span></p></div>
+      <div class="reveal"><h3><span class="ja">SEOの実践者</span><span class="en">Hands-on SEO</span></h3><p><span class="ja">自分の日本語ブログ（MIKILOG）を運営し、検索で読まれる日本語を日々試しています。</span><span class="en">I run my own Japanese blog (MIKILOG) and test what ranks and reads well every day.</span></p></div>
+    </div>
+    <p class="formula reveal"><span class="ja">ことば × <em>仕組み</em> × <em>顧客視点</em></span><span class="en">Language × <em>Tech</em> × <em>Customer mindset</em></span></p>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section id="voices">
+  <div class="wrap">
+    <p class="label">CLIENT VOICES</p>
+    <h2><span class="ja">クライアントの声</span><span class="en">What clients say</span></h2>
+    <div class="voices">
+      <div class="voice reveal"><p class="q">“naturally took the lead”</p><p><span class="ja">日本市場ローンチ前のEC集中QAで、チームを自然に引っ張ったと評価されました。</span><span class="en">Pre-launch e-commerce QA sprint for the Japanese market.</span></p></div>
+      <div class="voice reveal"><p class="q">“above and beyond”</p><p><span class="ja">急ぎの案件で、期待以上の対応をしたと評価されました。</span><span class="en">An urgent project delivered beyond expectations.</span></p></div>
+      <div class="voice reveal"><p class="q">“Fantastic collaboration”</p><p><span class="ja">大型YouTubeチャンネルの日本語字幕を継続して担当しています。</span><span class="en">Ongoing Japanese subtitles for a major YouTube channel.</span></p></div>
+    </div>
+    <div class="chips">
+      <span class="chip">Committed to Quality</span><span class="chip">Collaborative</span><span class="chip">Reliable</span><span class="chip">Detail Oriented</span>
+    </div>
+    <p class="note"><span class="ja">※Upworkのレビューより抜粋。</span><span class="en">*Excerpts from Upwork reviews.</span></p>
+  </div>
+</section>
+
+<!-- BEYOND -->
+<section class="alt" aria-labelledby="beyond-h">
+  <div class="wrap">
+    <p class="label">BEYOND CLIENT WORK</p>
+    <h2 id="beyond-h"><span class="ja">発信とメンター活動</span><span class="en">Writing & mentoring</span></h2>
+    <div class="beyond">
+      <a class="card-link reveal" href="https://mikiworld.org" target="_blank" rel="noopener">
+        <p class="meta">BLOG</p><h3>MIKILOG</h3>
+        <p><span class="ja">海外リモートワークやUpworkについて書いている日本語ブログ。</span><span class="en">My Japanese blog on remote work and freelancing on Upwork.</span></p>
+      </a>
+      <a class="card-link reveal" href="#" target="_blank" rel="noopener">
+        <p class="meta">MENTORING</p><h3><span class="ja">メンター活動</span><span class="en">Mentoring</span></h3>
+        <p><span class="ja">海外案件に挑戦する受講生のメンターとして、プロフィール作成や日報のフィードバックを担当。</span><span class="en">Mentoring Japanese learners starting out on global freelance platforms — profiles, proposals, daily feedback.</span></p>
+      </a>
+      <a class="card-link reveal" href="#" target="_blank" rel="noopener">
+        <p class="meta">TALK</p><h3><span class="ja">Upworkプロフィール講座</span><span class="en">Upwork profile workshop</span></h3>
+        <p><span class="ja">「選ばれるプロフィール」をテーマにオンラインで登壇。</span><span class="en">Online workshop on writing an Upwork profile that gets picked.</span></p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="label" style="justify-content:center">LET'S WORK TOGETHER</p>
+    <h2><span class="ja">日本市場の<em>担当者</em>、<br>探していませんか？</span><span class="en">Need someone to own<br>your <em>Japan</em> launch?</span></h2>
+    <p class="sub"><span class="ja">まずは状況を聞かせてください。参入前の相談だけでも大歓迎です。</span><span class="en">Tell me where you are. Early-stage questions are welcome too.</span></p>
+    <div class="btns">
+      <a class="btn btn-neon" href="mailto:YOUR-EMAIL@example.com"><span class="ja">メールで相談</span><span class="en">Email me</span> →</a>
+      <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Upwork</a>
+      <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Mikio</span>
+    <span><a href="https://mikiworld.org" target="_blank" rel="noopener">MIKILOG</a> · <a href="#" target="_blank" rel="noopener">LinkedIn</a> · <a href="#" target="_blank" rel="noopener">Upwork</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.setAttribute('data-lang',l);root.lang=l;
+    document.querySelectorAll('[data-set-lang]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.setLang===l)});
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+  setLang(saved||((navigator.language||'ja').indexOf('ja')===0?'ja':'en'));
+  document.querySelectorAll('[data-set-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.setLang)})});
+
+  var btn=document.querySelector('.menu-btn'),menu=document.getElementById('menu');
+  btn.addEventListener('click',function(){var o=menu.classList.toggle('open');btn.setAttribute('aria-expanded',o)});
+  menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');btn.setAttribute('aria-expanded',false)})});
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  }else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')})}
+})();
+</script>
+</body>
+</html>
